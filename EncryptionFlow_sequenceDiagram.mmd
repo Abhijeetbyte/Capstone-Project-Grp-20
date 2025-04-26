@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant System
+    participant Database
+
+    User ->> System: Enter any Master Password
+    System ->> System: Derive AES Key with PBKDF2
+    System ->> Database: Fetch Salt, IV, Encrypted Credentials
+    Database -->> System: Send Salt, IV, Encrypted Data
+    System ->> System: Decrypt with Derived AES Key + IV
+    System -->> User: Show Decrypted Credentials (No Validation)
+    Note over System, User: Only human validates by using it

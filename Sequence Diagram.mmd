@@ -1,0 +1,13 @@
+flowchart TD
+    A[User Inputs Master Password] --> B[Fetch Salt + IV]
+    B --> C[Derive AES Key via PBKDF2]
+    C --> D[Decrypt Encrypted Credentials]
+    D --> E[Show Decrypted Data]
+    E --> F[User Manually Verifies Correctness]
+    
+    style A fill:#f0f8ff,stroke:#333,stroke-width:2px
+    style B fill:#d3f8e2,stroke:#333,stroke-width:2px
+    style C fill:#ffebcd,stroke:#333,stroke-width:2px
+    style D fill:#fddfdf,stroke:#333,stroke-width:2px
+    style E fill:#fff5e1,stroke:#333,stroke-width:2px
+    style F fill:#f7d9ff,stroke:#333,stroke-width:2px
