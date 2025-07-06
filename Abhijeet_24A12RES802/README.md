@@ -75,13 +75,4 @@ _Your computer must be running Windows 10 or newer._
 ![Uses GIF](assets/search-use-gif.gif)</br>
 
 
-## Reporting Issues & Contributions
 
-Feel free to report <b>[issues](https://github.com/Abhijeetbyte/MYPmanager/issues/new)</b> and <b>contribute</b> to this repository
-
-
-## License
-
-Copyright © 2024 Abhijeet kumar. All rights reserved.
-
-Licensed under the [CC0-1.0 License](LICENSE).
