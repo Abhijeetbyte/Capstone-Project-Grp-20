@@ -1,0 +1,17 @@
+def update_credential(service, username, new_password):
+    # Derive encryption key
+    key = b'examplekey1234567890abcdef'
+    
+    # Encrypt new password
+    encrypted_password, iv = encrypt_password(new_password, key)
+    
+    # Update the credential in the database
+    conn = sqlite3.connect('credentials.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        UPDATE credentials
+        SET password = ?, iv = ?
+        WHERE service = ? AND username = ?
+    ''', (encrypted_password, iv, service, username))
+    conn.commit()
+    conn.close()
