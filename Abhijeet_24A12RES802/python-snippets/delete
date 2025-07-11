@@ -1,0 +1,15 @@
+def delete_credential(service, username):
+    # User confirmation (this would be handled in UI)
+    confirmation = input(f"Are you sure you want to delete the credential for {service} ({username})? (y/n): ")
+    
+    if confirmation.lower() == 'y':
+        conn = sqlite3.connect('credentials.db')
+        cursor = conn.cursor()
+        cursor.execute('''
+            DELETE FROM credentials WHERE service = ? AND username = ?
+        ''', (service, username))
+        conn.commit()
+        conn.close()
+        print(f"Credential for {service} deleted.")
+    else:
+        print("Deletion cancelled.")
